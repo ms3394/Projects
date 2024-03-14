@@ -1,0 +1,8 @@
+This code is used to solve 9x9 sudoku puzzles using a backtracking method. 
+The first thing I did was to create a validatesudoku(sudoku) function which uses the bincount() method to return the count of number of occurrences of the values in the sudoku and if they occur more than 9 times then a numpy 9x9 array of -1’s will be returned showing that the initial board is invalid.
+ 
+Secondly, I created a checkrowandcol(sudoku, row, col, no) function which checks each row, column, and 3 by 3 grid of the sudoku and if the number is already present it returns false otherwise it returns true. To check each row, column, and 3 by 3 grid I initially used for and range loops however, it was causing my code to solve each sudoku slower and therefore I decided to put more importance on the functionality of the numpy array by using more if and else statements to increase the speed.
+
+Thirdly, I created a Fillcell(sudoku, row, col) function that fills the numbers in the blank spaces one by one. Once the last column is reached it then moves onto the next row. It checks that if a cell is not 0 and already has a number then it moves onto the next column. However, if a number does not exist in that paticular row, column, or grid then it fills the cell. If a value exists more than once, it reassigns it back to zero and continues to check the row and column until a value is found.
+
+Lastly, I wrote a sudoku_solver(sudoku) function which checks if each of the above functions is a success, if it is true that is there are no more empty spaces left, the function will return the solved sudoku. However, if there are no more possible combinations in the sudoku, the function will return a numpy 9x9 array of -1’s indicating that the sudoku is unsolvable.
